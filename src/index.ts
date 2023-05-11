@@ -145,7 +145,7 @@ import { WFFormComponent } from "@xatom/core";
       form.getFormData()["zip-code-2"].length &&
       step5CheckBox.getElement().checked
     ) {
-      form.getFormComponent().getElement().submit();
+      // form.getFormComponent().getElement().submit();
       // step4.getElement().style.display = "none";
       // step5.getElement().style.display = "flex";
       step5ErrorMessage.getElement().style.display = "none";
