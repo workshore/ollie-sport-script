@@ -4,13 +4,13 @@ import { WFFormComponent } from "@xatom/core";
 
 (window as any).Webflow.push(() => {
   const form = new WFFormComponent<{
-    looking_for: string;
-    "size_of-the-team": string;
-    "looking_for-in-Ollie": string;
-    "Email-2": string;
-    "Full-name-2": string;
-    "team-club-name-2": string;
-    "zip-code-2": string;
+    "Looking-for": string;
+    "Size-of-the-team": string;
+    "Looking-for-in-Ollie": string;
+    "Email": string;
+    "Full-Name": string;
+    "Team-Club-Name": string;
+    "Zip-Code": string;
   }>("#multi-step-form");
   const step1 = form.getChildAsComponent("#step1");
   const step1NextButton = step1.getChildAsComponent(
@@ -46,14 +46,14 @@ import { WFFormComponent } from "@xatom/core";
   const step5 = form.getChildAsComponent("#step5");
   const step5Email =
     step5.getChildAsComponent<HTMLInputElement>(
-      `[name="Email-2"]`
+      `[name="Email"]`
     );
   const step5Part2 = step5.getChildAsComponent(
     `#form-content-holder`
   );
   const step5CheckBox =
     step5.getChildAsComponent<HTMLInputElement>(
-      `[name="Consent-Checkbox-2"]`
+      `[name="Consent-Checkbox"]`
     );
   const step5NextButton = step5.getChildAsComponent(
     `[xa-type="next"]`
@@ -70,8 +70,8 @@ import { WFFormComponent } from "@xatom/core";
   });
   step2NextButton.on("click", () => {
     if (
-      form.getFormData().looking_for &&
-      form.getFormData().looking_for.length
+      form.getFormData()["Looking-for"] &&
+      form.getFormData()["Looking-for"].length
     ) {
       step2.getElement().style.display = "none";
       step3.getElement().style.display = "flex";
@@ -87,8 +87,8 @@ import { WFFormComponent } from "@xatom/core";
   });
   step3NextButton.on("click", () => {
     if (
-      form.getFormData()["size_of-the-team"] &&
-      form.getFormData()["size_of-the-team"].length
+      form.getFormData()["Size-of-the-team"] &&
+      form.getFormData()["Size-of-the-team"].length
     ) {
       step3.getElement().style.display = "none";
       step4.getElement().style.display = "flex";
@@ -104,8 +104,8 @@ import { WFFormComponent } from "@xatom/core";
   });
   step4NextButton.on("click", () => {
     if (
-      form.getFormData()["looking_for-in-Ollie"] &&
-      form.getFormData()["looking_for-in-Ollie"].length
+      form.getFormData()["Looking-for-in-Ollie"] &&
+      form.getFormData()["Looking-for-in-Ollie"].length
     ) {
       step4.getElement().style.display = "none";
       step5.getElement().style.display = "flex";
@@ -137,12 +137,12 @@ import { WFFormComponent } from "@xatom/core";
       /^[\w.-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/.test(
         step5Email.getElement().value
       ) &&
-      form.getFormData()["Full-name-2"] &&
-      form.getFormData()["Full-name-2"].length &&
-      form.getFormData()["team-club-name-2"] &&
-      form.getFormData()["team-club-name-2"].length &&
-      form.getFormData()["zip-code-2"] &&
-      form.getFormData()["zip-code-2"].length &&
+      form.getFormData()["Full-Name"] &&
+      form.getFormData()["Full-Name"].length &&
+      form.getFormData()["Team-Club-Name"] &&
+      form.getFormData()["Team-Club-Name"].length &&
+      form.getFormData()["Zip-Code"] &&
+      form.getFormData()["Zip-Code"].length &&
       step5CheckBox.getElement().checked
     ) {
       // form.getFormComponent().getElement().submit();
